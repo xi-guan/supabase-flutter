@@ -121,7 +121,7 @@ class SupabaseAuth with WidgetsBindingObserver {
           }
         }
       }
-      WidgetsBinding.instance?.addObserver(_instance);
+      WidgetsBinding.instance.addObserver(_instance);
       _instance._startDeeplinkObserver();
 
       if (!_instance._initialSessionCompleter.isCompleted) {
@@ -142,7 +142,7 @@ class SupabaseAuth with WidgetsBindingObserver {
     _listenerController.close();
     _authSubscription?.data?.unsubscribe();
     _stopDeeplinkObserver();
-    WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
   }
 
   @override
@@ -163,14 +163,12 @@ class SupabaseAuth with WidgetsBindingObserver {
   /// Recover/refresh session if it's available
   /// e.g. called on a Splash screen when app starts.
   Future<bool> _recoverSupabaseSession() async {
-    final bool exist =
-        await SupabaseAuth.instance.localStorage.hasAccessToken();
+    final bool exist = await SupabaseAuth.instance.localStorage.hasAccessToken();
     if (!exist) {
       return false;
     }
 
-    final String? jsonStr =
-        await SupabaseAuth.instance.localStorage.accessToken();
+    final String? jsonStr = await SupabaseAuth.instance.localStorage.accessToken();
     if (jsonStr == null) {
       return false;
     }
