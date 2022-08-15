@@ -12,11 +12,11 @@ dependencies:
   app_links: ^3.2.0
   flutter:
     sdk: flutter
-  hive: ^2.2.1
+  hive: ^2.2.3
   hive_flutter: ^1.1.0
-  http: ^0.13.4
+  http: ^0.13.5
   supabase: ^1.0.0-dev.4
-  url_launcher: ^6.1.2
+  url_launcher: ^6.1.5
 
 dev_dependencies:
   flutter_test:
